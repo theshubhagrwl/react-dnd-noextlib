@@ -2,7 +2,7 @@
   "name": "react-dnd-noext",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://theshubhagrwl.github.io/react-dnd-noext",
+  "homepage": ".",
   "dependencies": {
     "@mantine/core": "^4.2.6",
     "@mantine/hooks": "^4.2.6",
