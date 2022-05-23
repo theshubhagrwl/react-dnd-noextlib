@@ -15,6 +15,10 @@ const Dnd = () => {
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
     console.log("drag enter: ", e.target.innerText);
+    //to make items reshuffle while dragging:
+    //call drop() here
+    //change dragItem.current = dragOverItem.current
+    drop();
   };
 
   const drop = (e) => {
@@ -22,7 +26,7 @@ const Dnd = () => {
     const dragItemContent = listCopy[dragItem.current];
     listCopy.splice(dragItem.current, 1);
     listCopy.splice(dragOverItem.current, 0, dragItemContent);
-    dragItem.current = null;
+    dragItem.current = dragOverItem.current;
     dragOverItem.current = null;
     setItems(listCopy);
   };
@@ -37,7 +41,7 @@ const Dnd = () => {
             fullWidth
             onDragStart={(e) => dragStart(e, index)}
             onDragEnter={(e) => dragEnter(e, index)}
-            onDragEnd={drop}
+            // onDragEnd={drop}
             onDragOver={(e) => {
               e.preventDefault();
             }}
